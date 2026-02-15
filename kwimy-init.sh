@@ -1,6 +1,8 @@
 #!/usr/bin/env bash
 set -euo pipefail
 marker="$HOME/.cache/kwimy-nvm-node-done"
+wallpaper_marker="$HOME/.cache/kwimy-awww-wallpaper-done"
+default_wallpaper="/usr/share/kwimy-hypr/backgrounds/1.jpg"
 log="$HOME/.local/share/kwimy/logs/kwimy-init.log"
 autostart_file="$HOME/.config/autostart/kwimy-init.desktop"
 mkdir -p "$(dirname "$log")"
@@ -16,6 +18,25 @@ if command -v systemctl >/dev/null 2>&1; then
   fi
 else
   echo "[$(date -Iseconds)] systemctl not available; skipping hypridle enable" >> "$log"
+fi
+
+if [[ ! -f "$wallpaper_marker" ]]; then
+  if command -v awww >/dev/null 2>&1; then
+    if [[ -f "$default_wallpaper" ]]; then
+      if timeout -k 2s 10s awww img "$default_wallpaper" --transition-type wipe >>"$log" 2>&1; then
+        mkdir -p "$(dirname "$wallpaper_marker")"
+        touch "$wallpaper_marker"
+        echo "[$(date -Iseconds)] initialized awww wallpaper cache with $default_wallpaper" >> "$log"
+      else
+        rc=$?
+        echo "[$(date -Iseconds)] failed to initialize awww wallpaper cache (exit=$rc)" >> "$log"
+      fi
+    else
+      echo "[$(date -Iseconds)] default wallpaper not found: $default_wallpaper" >> "$log"
+    fi
+  else
+    echo "[$(date -Iseconds)] awww command not available; skipping wallpaper init" >> "$log"
+  fi
 fi
 
 if [[ -f "$marker" ]]; then
