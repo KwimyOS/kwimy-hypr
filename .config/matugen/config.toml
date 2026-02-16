@@ -1,0 +1,27 @@
+[config]
+
+[config.wallpaper]
+set = true
+command = "awww img --transition-type center --transition-step 15 --transition-fps 60 {{ image }}"
+
+[templates.btop]
+input_path = '~/.config/matugen/templates/btop.theme'
+output_path = '~/.config/btop/themes/current.theme'
+post_hook = 'pkill -USR2 btop || true'
+
+[templates.alacritty]
+input_path = '~/.config/matugen/templates/alacritty.toml'
+output_path = '~/.config/alacritty/colors.toml'
+
+[templates.hyprland]
+input_path = '~/.local/share/kwimy/hypr/conf/hyprland-colors.conf'
+output_path = '~/.local/share/kwimy/hypr/conf/colors.conf'
+
+[templates.gtk3]
+input_path = '~/.config/matugen/templates/gtk-colors.css'
+output_path = '~/.config/gtk-3.0/colors.css'
+post_hook = 'gsettings set org.gnome.desktop.interface gtk-theme ""; gsettings set org.gnome.desktop.interface gtk-theme adw-gtk3-{{mode}}'
+
+[templates.gtk4]
+input_path = '~/.config/matugen/templates/gtk-colors.css'
+output_path = '~/.config/gtk-4.0/colors.css'

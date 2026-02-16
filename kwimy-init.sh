@@ -1,7 +1,7 @@
 #!/usr/bin/env bash
 set -euo pipefail
 marker="$HOME/.cache/kwimy-nvm-node-done"
-wallpaper_marker="$HOME/.cache/kwimy-awww-wallpaper-done"
+wallpaper_marker="$HOME/.cache/kwimy-matugen-wallpaper-done"
 default_wallpaper="/usr/share/kwimy-hypr/backgrounds/1.jpg"
 log="$HOME/.local/share/kwimy/logs/kwimy-init.log"
 autostart_file="$HOME/.config/autostart/kwimy-init.desktop"
@@ -21,21 +21,33 @@ else
 fi
 
 if [[ ! -f "$wallpaper_marker" ]]; then
-  if command -v awww >/dev/null 2>&1; then
+  if command -v matugen >/dev/null 2>&1; then
     if [[ -f "$default_wallpaper" ]]; then
-      if timeout -k 2s 10s awww img "$default_wallpaper" --transition-type wipe >>"$log" 2>&1; then
-        mkdir -p "$(dirname "$wallpaper_marker")"
-        touch "$wallpaper_marker"
-        echo "[$(date -Iseconds)] initialized awww wallpaper cache with $default_wallpaper" >> "$log"
+      if command -v script >/dev/null 2>&1; then
+        if printf '1\n' | timeout -k 2s 45s script -qec "matugen image '$default_wallpaper' -m dark" /dev/null >>"$log" 2>&1; then
+          mkdir -p "$(dirname "$wallpaper_marker")"
+          touch "$wallpaper_marker"
+          echo "[$(date -Iseconds)] initialized matugen theme/wallpaper with pseudo-tty selection (option 1)" >> "$log"
+        else
+          rc=$?
+          echo "[$(date -Iseconds)] failed matugen pseudo-tty init (exit=$rc)" >> "$log"
+        fi
       else
-        rc=$?
-        echo "[$(date -Iseconds)] failed to initialize awww wallpaper cache (exit=$rc)" >> "$log"
+        echo "[$(date -Iseconds)] script(1) not available; trying stdin mode for matugen" >> "$log"
+        if timeout -k 2s 30s matugen image "$default_wallpaper" -m dark <<<"1" >>"$log" 2>&1; then
+          mkdir -p "$(dirname "$wallpaper_marker")"
+          touch "$wallpaper_marker"
+          echo "[$(date -Iseconds)] initialized matugen theme/wallpaper with stdin selection (option 1)" >> "$log"
+        else
+          rc=$?
+          echo "[$(date -Iseconds)] failed matugen stdin init (exit=$rc)" >> "$log"
+        fi
       fi
     else
       echo "[$(date -Iseconds)] default wallpaper not found: $default_wallpaper" >> "$log"
     fi
   else
-    echo "[$(date -Iseconds)] awww command not available; skipping wallpaper init" >> "$log"
+    echo "[$(date -Iseconds)] matugen command not available; skipping wallpaper init" >> "$log"
   fi
 fi
 

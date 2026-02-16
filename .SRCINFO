@@ -1,7 +1,7 @@
 pkgbase = kwimy-hypr
 	pkgdesc = Hyprland defaults and helper scripts for Kwimy
-	pkgver = 0.0.2
-	pkgrel = 7
+	pkgver = 0.0.3
+	pkgrel = 1
 	url = https://github.com/KwimyOS
 	arch = any
 	license = MIT
