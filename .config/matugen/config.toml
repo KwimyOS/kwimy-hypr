@@ -14,7 +14,7 @@ input_path = '~/.config/matugen/templates/alacritty.toml'
 output_path = '~/.config/alacritty/colors.toml'
 
 [templates.hyprland]
-input_path = '/usr/share/kwimy-hypr/hyprland-colors.conf'
+input_path = '/usr/share/kwimy-hypr/colors/matugen.conf'
 output_path = '~/.local/share/kwimy/hypr/colors.conf'
 
 [templates.gtk3]
