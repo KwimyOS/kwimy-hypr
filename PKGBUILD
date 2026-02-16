@@ -1,7 +1,7 @@
 # Maintainer: Kwimy
 pkgname=kwimy-hypr
 pkgver=0.0.3
-pkgrel=1
+pkgrel=5
 pkgdesc="Hyprland defaults and helper scripts for Kwimy"
 arch=('any')
 url="https://github.com/KwimyOS"
@@ -32,6 +32,8 @@ package() {
   install -Dm644 "$srcdir/kwimy-hypr/system/hyprpaper.conf" "$pkgdir/usr/share/kwimy-hypr/hyprpaper.conf"
   install -Dm644 "$srcdir/kwimy-hypr/system/hypridle.conf" "$pkgdir/usr/share/kwimy-hypr/hypridle.conf"
   install -Dm644 "$srcdir/kwimy-hypr/system/hyprlock.conf" "$pkgdir/usr/share/kwimy-hypr/hyprlock.conf"
+  install -Dm644 "$srcdir/kwimy-hypr/system/hyprland-colors.conf" "$pkgdir/usr/share/kwimy-hypr/hyprland-colors.conf"
+  install -Dm644 "$srcdir/kwimy-hypr/system/fallback_colors.conf" "$pkgdir/usr/share/kwimy-hypr/fallback_colors.conf"
   install -Dm644 "$srcdir/kwimy-hypr/system/mocha.conf" "$pkgdir/usr/share/kwimy-hypr/mocha.conf"
   install -Dm644 "$srcdir/kwimy-hypr/system/conf/animations.conf" "$pkgdir/usr/share/kwimy-hypr/conf/animations.conf"
   install -Dm644 "$srcdir/kwimy-hypr/system/conf/decoration.conf" "$pkgdir/usr/share/kwimy-hypr/conf/decoration.conf"

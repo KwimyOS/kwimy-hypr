@@ -2,7 +2,7 @@
 
 [config.wallpaper]
 set = true
-command = "awww img --transition-type center --transition-step 15 --transition-fps 60 {{ image }}"
+command = "awww img --transition-type center --transition-step 90 --transition-fps 60 {{ image }}"
 
 [templates.btop]
 input_path = '~/.config/matugen/templates/btop.theme'
@@ -14,8 +14,8 @@ input_path = '~/.config/matugen/templates/alacritty.toml'
 output_path = '~/.config/alacritty/colors.toml'
 
 [templates.hyprland]
-input_path = '~/.local/share/kwimy/hypr/conf/hyprland-colors.conf'
-output_path = '~/.local/share/kwimy/hypr/conf/colors.conf'
+input_path = '/usr/share/kwimy-hypr/hyprland-colors.conf'
+output_path = '~/.local/share/kwimy/hypr/colors.conf'
 
 [templates.gtk3]
 input_path = '~/.config/matugen/templates/gtk-colors.css'
