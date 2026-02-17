@@ -1,0 +1,13 @@
+{
+  "autoUpdate": true,
+  "autoUpdateNotification": true,
+  "useQuickCss": true,
+  "themeLinks": [],
+  "enabledThemes": ["midnight-discord.css"],
+  "plugins": {
+    "Settings": {
+      "enabled": true,
+      "settingsLocation": "aboveNitro"
+    }
+  }
+}

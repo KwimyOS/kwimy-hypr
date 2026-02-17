@@ -34,3 +34,11 @@ output_path = '~/.local/share/kwimy/Matugen.colors'
 input_path = "./colors.css"
 output_path = "~/.config/swaync/colors.css"
 post_hook = "swaync-client -rs"
+
+[templates.zed]
+input_path = '~/.config/matugen/templates/zed-colors.json'
+output_path = '~/.config/zed/themes/matugen.json'
+
+[templates.vesktop]
+input_path = '~/.config/matugen/templates/midnight-discord.css'
+output_path = '~/.config/vesktop/themes/midnight-discord.css'
