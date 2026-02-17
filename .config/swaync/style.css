@@ -1,5 +1,6 @@
-@define-color center-bg       rgba(8, 8, 11, 0.9);
-@define-color background      #08080b;
+@import "colors.css";
+
+@define-color center-bg       @background;
 @define-color text            #acb0d0;
 @define-color text-alt        #787c99;
 @define-color background-alt  #0e0e14;
@@ -19,12 +20,12 @@
 .notification {
     padding: 0 5px;
     border-radius: 15px;
-    border: 2px solid @background;
+    border: 0px solid @background;
     color: @text;
 }
 
 .notification-background {
-    background: @center-bg;
+    background: alpha(@center-bg, 0.68);
     box-shadow: none;
     border-radius: 15px;
     margin: 8px;
@@ -112,7 +113,7 @@
 }
 
 .control-center {
-    background: @center-bg;
+    background: alpha(@center-bg, 0.68);
     border-radius: 15px;
     margin: 5px;
     padding: 12px;

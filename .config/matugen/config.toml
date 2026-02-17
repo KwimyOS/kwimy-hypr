@@ -29,3 +29,8 @@ output_path = '~/.config/gtk-4.0/colors.css'
 [templates.color-scheme]
 input_path = '~/.config/matugen/templates/Matugen.colors'
 output_path = '~/.local/share/kwimy/Matugen.colors'
+
+[templates.swaync]
+input_path = "./colors.css"
+output_path = "~/.config/swaync/colors.css"
+post_hook = "swaync-client -rs"
