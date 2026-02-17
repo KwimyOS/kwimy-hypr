@@ -42,3 +42,8 @@ output_path = '~/.config/zed/themes/matugen.json'
 [templates.vesktop]
 input_path = '~/.config/matugen/templates/midnight-discord.css'
 output_path = '~/.config/vesktop/themes/midnight-discord.css'
+
+[templates.zlaunch]
+input_path = '~/.config/matugen/templates/zlaunch.toml'
+output_path = '~/.config/zlaunch/themes/dynamic.toml'
+post_hook = 'zlaunch reload'
