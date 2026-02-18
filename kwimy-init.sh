@@ -9,15 +9,17 @@ mkdir -p "$(dirname "$log")"
 echo "[$(date -Iseconds)] kwimy init start" >> "$log"
 
 if command -v systemctl >/dev/null 2>&1; then
-  echo "[$(date -Iseconds)] enabling hypridle user service" >> "$log"
-  if timeout -k 5s 30s systemctl --user enable --now hypridle.service >>"$log" 2>&1; then
-    echo "[$(date -Iseconds)] hypridle.service enabled and started" >> "$log"
-  else
-    rc=$?
-    echo "[$(date -Iseconds)] failed to enable/start hypridle.service (exit=$rc)" >> "$log"
-  fi
+  for svc in hypridle.service waybar.service swaync.service mpris-proxy.service; do
+    echo "[$(date -Iseconds)] enabling $svc user service" >> "$log"
+    if timeout -k 5s 30s systemctl --user enable --now "$svc" >>"$log" 2>&1; then
+      echo "[$(date -Iseconds)] $svc enabled and started" >> "$log"
+    else
+      rc=$?
+      echo "[$(date -Iseconds)] failed to enable/start $svc (exit=$rc)" >> "$log"
+    fi
+  done
 else
-  echo "[$(date -Iseconds)] systemctl not available; skipping hypridle enable" >> "$log"
+  echo "[$(date -Iseconds)] systemctl not available; skipping user service enable" >> "$log"
 fi
 
 if [[ ! -f "$wallpaper_marker" ]]; then

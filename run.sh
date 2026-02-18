@@ -45,7 +45,7 @@ if [[ -d "$skel_config_root" ]]; then
             else
                 # Directory exists, copy missing files inside it
                 echo "Updating config directory: $item_name (keeping existing files)"
-                cp -rn "$item"/* "$target_path/" 2>/dev/null || true
+                cp -an "$item/." "$target_path/"
             fi
         elif [[ -f "$item" ]]; then
             # Top level file inside .config
