@@ -47,3 +47,8 @@ output_path = '~/.config/vesktop/themes/midnight-discord.css'
 input_path = '~/.config/matugen/templates/zlaunch.toml'
 output_path = '~/.config/zlaunch/themes/dynamic.toml'
 post_hook = 'zlaunch reload'
+
+[templates.waybar]
+input_path = './colors.css'
+output_path = '~/.config/waybar/colors.css'
+post_hook = 'pkill -SIGUSR2 waybar'
