@@ -1,7 +1,7 @@
 # Maintainer: Kwimy
 pkgname=kwimy-hypr
 pkgver=0.0.4
-pkgrel=5
+pkgrel=8
 pkgdesc="Hyprland defaults and helper scripts for Kwimy"
 arch=('any')
 url="https://github.com/KwimyOS"
@@ -44,6 +44,7 @@ package() {
   install -Dm644 "$srcdir/kwimy-hypr/system/conf/group.conf" "$pkgdir/usr/share/kwimy-hypr/conf/group.conf"
   install -Dm644 "$srcdir/kwimy-hypr/system/conf/input.conf" "$pkgdir/usr/share/kwimy-hypr/conf/input.conf"
   install -Dm644 "$srcdir/kwimy-hypr/system/conf/keybinds.conf" "$pkgdir/usr/share/kwimy-hypr/conf/keybinds.conf"
+  install -Dm644 "$srcdir/kwimy-hypr/system/conf/tiling.conf" "$pkgdir/usr/share/kwimy-hypr/conf/tiling.conf"
   install -Dm644 "$srcdir/kwimy-hypr/system/conf/misc.conf" "$pkgdir/usr/share/kwimy-hypr/conf/misc.conf"
   install -Dm644 "$srcdir/kwimy-hypr/system/conf/monitors.conf" "$pkgdir/usr/share/kwimy-hypr/conf/monitors.conf"
   install -Dm644 "$srcdir/kwimy-hypr/system/conf/rules.conf" "$pkgdir/usr/share/kwimy-hypr/conf/rules.conf"
@@ -59,6 +60,12 @@ package() {
   cp -a "$srcdir/kwimy-hypr/.config/." "$pkgdir/etc/skel/.config/"
   install -Dm755 "$srcdir/kwimy-hypr/scripts/kwimy-lockscreen.sh" \
     "$pkgdir/etc/skel/.local/bin/kwimy-lockscreen"
+  install -Dm755 "$srcdir/kwimy-hypr/scripts/kwimy-close-all-windows.sh" \
+      "$pkgdir/etc/skel/.local/bin/kwimy-close-all-windows"
+  install -Dm755 "$srcdir/kwimy-hypr/scripts/kwimy-waybar-toggle.sh" \
+      "$pkgdir/etc/skel/.local/bin/kwimy-waybar-toggle"
+  install -Dm755 "$srcdir/kwimy-hypr/scripts/matugen-gtk-icons.sh" \
+      "$pkgdir/etc/skel/.local/bin/matugen-gtk-icons"
 
   # Helper Scripts & Metadata
   install -Dm755 "$srcdir/kwimy-hypr/run.sh" "$pkgdir/usr/share/kwimy-hypr/run.sh"
