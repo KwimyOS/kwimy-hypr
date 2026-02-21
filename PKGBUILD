@@ -1,7 +1,7 @@
 # Maintainer: Kwimy
 pkgname=kwimy-hypr
 pkgver=0.0.4
-pkgrel=8
+pkgrel=9
 pkgdesc="Hyprland defaults and helper scripts for Kwimy"
 arch=('any')
 url="https://github.com/KwimyOS"

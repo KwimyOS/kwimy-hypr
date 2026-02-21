@@ -43,12 +43,11 @@ output_path = '~/.config/zed/themes/matugen.json'
 input_path = '~/.config/matugen/templates/midnight-discord.css'
 output_path = '~/.config/vesktop/themes/midnight-discord.css'
 
-[templates.zlaunch]
-input_path = '~/.config/matugen/templates/zlaunch.toml'
-output_path = '~/.config/zlaunch/themes/dynamic.toml'
-post_hook = 'zlaunch reload'
-
 [templates.waybar]
 input_path = './colors.css'
 output_path = '~/.config/waybar/colors.css'
 post_hook = 'pkill -SIGUSR2 waybar'
+
+[templates.rofi]
+input_path = '~/.config/matugen/templates/rofi-colors.rasi'
+output_path = '~/.config/rofi/themes/colors/colors.rasi'
