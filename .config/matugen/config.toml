@@ -13,6 +13,11 @@ post_hook = 'pkill -USR2 btop || true'
 input_path = '~/.config/matugen/templates/alacritty.toml'
 output_path = '~/.config/alacritty/colors.toml'
 
+[templates.kitty]
+input_path = '~/.config/matugen/templates/kitty-colors.conf'
+output_path = '~/.config/kitty/themes/Dynamic.conf'
+post_hook = "kitty +kitten themes --reload-in=all Dynamic"
+
 [templates.hyprland]
 input_path = '/usr/share/kwimy-hypr/colors/matugen.conf'
 output_path = '~/.local/share/kwimy/hypr/colors.conf'
