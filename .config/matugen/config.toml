@@ -2,7 +2,7 @@
 
 [config.wallpaper]
 set = true
-command = "awww img --transition-type center --transition-step 90 --transition-fps 60 {{ image }}"
+command = "awww img --transition-type fade --transition-step 90 --transition-fps 60 --transition-duration 2 {{ image }}"
 
 [templates.btop]
 input_path = '~/.config/matugen/templates/btop.theme'
@@ -56,3 +56,12 @@ post_hook = 'pkill -SIGUSR2 waybar'
 [templates.rofi]
 input_path = '~/.config/matugen/templates/rofi-colors.rasi'
 output_path = '~/.config/rofi/themes/colors/colors.rasi'
+
+# [templates.matuwall]
+# input_path = '~/.config/matugen/templates/matuwall-colors.json'
+# output_path = '~/.config/matuwall/colors.json'
+
+[templates.cava]
+input_path = '~/.config/matugen/templates/cava-colors.ini'
+output_path = '~/.config/cava/themes/matugen'
+post_hook = 'pkill -USR1 cava'
