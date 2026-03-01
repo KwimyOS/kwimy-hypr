@@ -9,7 +9,7 @@ mkdir -p "$(dirname "$log")"
 echo "[$(date -Iseconds)] kwimy init start" >> "$log"
 
 if command -v systemctl >/dev/null 2>&1; then
-  for svc in hypridle.service waybar.service swaync.service mpris-proxy.service; do
+  for svc in hypridle.service waybar.service swaync.service mpris-proxy.service wireplumber.service; do
     echo "[$(date -Iseconds)] enabling $svc user service" >> "$log"
     if timeout -k 5s 30s systemctl --user enable --now "$svc" >>"$log" 2>&1; then
       echo "[$(date -Iseconds)] $svc enabled and started" >> "$log"
